@@ -1,0 +1,59 @@
+.registrar{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(https://universidadesdemexico.mx/img/article/universidades-privadas-duplican-tasa-de-graduacion);
+    background-size: cover;
+}
+
+.tituloRegistrar{
+    font-size: 50px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.registrarForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.registrarForm > label{
+    margin:10px 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.registrarInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.botonRegistrar{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: cadetblue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.inicioSesion{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color:lightcoral;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+

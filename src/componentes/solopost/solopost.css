@@ -1,0 +1,61 @@
+.soloPost{
+    flex: 9;
+}
+
+.info{
+    padding: 20px;
+    padding-right: 0;
+}
+
+.postFoto{
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.solopostTitulo{
+    text-align: center;
+    margin: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 28px;
+}
+
+.editarPost{
+    float: right;
+    font-size: 16px;
+}
+
+.icono{
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.icono:first-child{
+    color: cornflowerblue;
+}
+
+.icono:last-child{
+    color:crimson;
+}
+
+.postDescripcion{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    color: #b39656
+}
+
+.postdatoGeneral{
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.postdatoGeneral::first-letter{
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}

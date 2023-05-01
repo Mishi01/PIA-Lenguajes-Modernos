@@ -1,0 +1,58 @@
+.principal{
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    z-index: 999;
+}
+
+.barraDerecha,.barraIzquierda{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconoSuperior{
+    font-size: 25px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
+}
+
+.imagenDerecha{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.barraCentro{
+    flex: 6;
+}
+
+.barradeElementos{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.barraElemento{
+    margin-right: 25px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.iconoBuscar{
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
+    margin-left: 15px;
+}
