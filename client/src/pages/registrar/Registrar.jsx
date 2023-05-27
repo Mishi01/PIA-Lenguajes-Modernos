@@ -1,6 +1,10 @@
 import "./registrar.css";
 import { Link } from "react-router-dom";
 
+const userAction = async () => {
+  const response = await fetch('http://localhost:4352/Registrar');
+}
+
 export default function Registrar() {
   return (
     <div className="registrar">
@@ -17,6 +21,7 @@ export default function Registrar() {
         <button className="inicioSesion">
           <Link className="link" to="/login">Inicio de Sesión</Link>
         </button>
+        <button onClick={userAction}>Test</button> 
     </div>
   );
 }

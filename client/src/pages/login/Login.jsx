@@ -1,6 +1,14 @@
 import "./login.css";
 import { Link } from "react-router-dom";
 
+export function test () {
+  alert("Test");
+}
+
+const userAction = async () => {
+  const response = await fetch('http://localhost:4352/Login');
+}
+
 export default function Login() {
   return (
     <div className="login">
@@ -15,6 +23,7 @@ export default function Login() {
         <button className="registro">
           <Link className="link" to="/registrar">Registro</Link>
         </button>
+        <button onClick={userAction}>Test</button> 
     </div>
   );
 }

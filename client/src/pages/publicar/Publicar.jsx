@@ -1,5 +1,10 @@
 import "./publicar.css";
 
+
+const userAction = async () => {
+    const response = await fetch('http://localhost:4352/Publicar');
+  }
+
 export default function Publicar() {
   return (
     <div className="publicar">
@@ -16,6 +21,7 @@ export default function Publicar() {
                 <textarea placeholder="Información sobre beca.." type="text" className="publicacionInput publicarTexto"></textarea>
             </div>
             <button className="submit">Publicar</button>
+            <button onClick={userAction}>Test</button> 
         </form>
     </div>
   );
