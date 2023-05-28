@@ -6,17 +6,22 @@ const UserSchema = new mongoose.Schema({
         required:true,
         unique:true
     },
-    email:{
+    Correo:{
         type: String,
         required:true,
         unique: true,
-    },password:{
+    },Contraseña:{
         type:String,
         required: true
     },
+    Tipo:{
+        type:String,
+        required:true,
+        default: "usuario"
+    }
 },
     {timestamps:true }
 
 );
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Usuario", UserSchema);
