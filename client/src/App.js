@@ -6,7 +6,7 @@ import Publicar from "./pages/publicar/Publicar";
 import Registrar from "./pages/registrar/Registrar";
 import Solo from "./pages/solo/Solo";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Link
