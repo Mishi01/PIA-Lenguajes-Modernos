@@ -1,0 +1,78 @@
+.barra{
+    flex: 3;
+    margin: 20px;
+    padding-bottom: 30px;
+    background-color: #fdfbfb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.elementoLateral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tituloElemento{
+    margin: 10px;
+    padding: 5px;
+    width: 50%;
+    border-top: 1px solid #a7a4a4;
+    border-bottom: 1px solid #a7a4a4;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    color: #222;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+}
+
+.elementoLateral > img{
+    margin-top: 20px;
+    width: 20%;
+}
+
+
+.elementoLateral > p{
+    padding: 30px;
+    font-family: 'Nunito', sans-serif;
+    width: 50%;
+}
+
+.listaLateral{
+    list-style: none;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+    display: inline-block;
+
+}
+
+.elementoLista{
+    display: inline-block;
+    width: 40%;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: 'Nunito';
+    align-items: center;
+    justify-content: center;
+        display: flex;
+
+}
+
+.socialLateral{
+    margin-top: 15px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconoLateral{
+    font-size: 20px;
+    margin-left: 15px;
+    color: #444;
+    cursor: pointer;
+}

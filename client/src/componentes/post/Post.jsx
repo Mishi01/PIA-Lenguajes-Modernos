@@ -1,22 +1,25 @@
 import "./post.css";
+import {Link} from "react-router-dom"
 
-export default function Post() {
+export default function Post({post}) {
+  const PF = "http://localhost:5000/fotos/"
   return (
     <div className="post">
-        <img className="imagenPost" src="https://jugadoresdeajedrez.com/wp-content/uploads/2022/09/Por-Primera-vez-una-Universidad-Ofrece-una-Carrera-en-Ajedrez.jpg" alt="beca ajedrez"></img>
+        <img className="imagenPost" src={PF+post.foto} alt="beca ajedrez"></img>
         <div className="postInfo">
             <div className="categoria">
-                <span className="categoriaPost">Deportiva</span>
+                <span className="categoriaPost">{post.categoria}</span>
             </div>
-            <span className="postTitulo">Lorem ipsum dolor sit amet</span>
+            <Link to = {`/post/${post._id}`} className="link">
+             <span className="postTitulo">{post.titulo}</span>
+            </Link>
             <hr/>
-            <span className="postFecha">Hace 1 mes</span>
+            <span className="postFecha">{post.createdAt}</span>
         </div>
         <p className="descripcionPost">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias praesentium. Totam, voluptatibus? Officiis, enim illum nam placeat, saepe reprehenderit, nobis quo aspernatur neque fuga molestiae necessitatibus vero ratione sint.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias praesentium. Totam, voluptatibus? Officiis, enim illum nam placeat, saepe reprehenderit, nobis quo aspernatur neque fuga molestiae necessitatibus vero ratione sint.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, alias praesentium. Totam, voluptatibus? Officiis, enim illum nam placeat, saepe reprehenderit, nobis quo aspernatur neque fuga molestiae necessitatibus vero ratione sint.
+            {post.descripcion}
         </p>
+
     </div>
   );
 }

@@ -1,9 +1,28 @@
+import { useContext } from "react";
 import "./barraprincipal.css"
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 
 
 export default function Barraprincipal(){
-    const user=false;
+    const {usuario, dispatch} = useContext(Context)
+
+    const handleLogout = () =>{
+        dispatch({type:"LOGOUT"});
+    };
+
+    let publicarLabel
+    if (usuario == null) {
+        publicarLabel = (<li className="barraElemento">
+            <Link className="link" to="/publicar">PUBLICAR</Link>
+        </li>)
+    } else {
+      if (usuario.Tipo == 'admin') {
+        publicarLabel = (<li className="barraElemento">
+            <Link className="link" to="/publicar">PUBLICAR</Link>
+        </li>)
+      }
+    }
     return (
         <div className="principal">
             <div className="barraIzquierda">
@@ -19,22 +38,17 @@ export default function Barraprincipal(){
                         <Link className="link" to="/">HOME</Link>
                     </li>
                     <li className="barraElemento">
-                        <Link className="link" to="/">SOBRE NOSOTROS</Link>
+                        <Link className="link" to="/nosotros">SOBRE NOSOTROS</Link>
                     </li>
-                    <li className="barraElemento">
-                        <Link className="link" to="/">CONTACTO</Link>
-                    </li>
-                    <li className="barraElemento">
-                        <Link className="link" to="/publicar">PUBLICAR</Link>
-                    </li>
-                    <li className="barraElemento">
-                        {user && "CERRAR SESIÓN"}
+                    {publicarLabel}
+                    <li className="barraElemento" onClick={handleLogout}>
+                        {usuario && "CERRAR SESIÓN"}
                     </li>
                 </ul>
             </div>
             <div className="barraDerecha">
                 {
-                    user  ? (
+                    usuario  ? (
                         <img className="imagenDerecha" src="https://www.esiaz.ipn.mx/assets/files/mediaSuperior/img/inicio/apartado-becas.png" alt="imagen-becas" />
                     ):(
                     <ul className="barradeElementos">

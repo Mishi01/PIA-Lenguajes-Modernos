@@ -61,20 +61,21 @@ router.get("/:id",async (req,res)=>{
 
 //GET ALL POST
 router.get("/",async (req,res)=>{
-
-        const catNombre = req.query.cat
-    try{   
-        let becas
-        if(catNombre){
-            becas = await Beca.find({categorias: {$in:[catNombre],
-            },
-        })
+    const catName = req.query.cats;
+    try{
+        let becas;
+        if(catName){
+            becas = await Beca.find({
+                categoria:{
+                    $in:[catName],
+                },
+            });
         }else{
-            becas = await Beca.find()
+            becas = await Beca.find();
         }
-        res.status(404).json(becas)
+        res.status(200).json(becas)
     }catch(err){
-        res.status(404).json(err)
+        res.status(500).json(err)
     }
 })
 module.exports = router

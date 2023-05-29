@@ -1,20 +1,35 @@
+import { useEffect, useState } from "react";
 import "./barralateral.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Barralateral() {
+    const [cats,setCats] = useState([]);
+
+    useEffect(()=>{
+        const getCats = async()=>{
+            const res = await axios.get("/categorias")
+            setCats(res.data)
+        }
+        getCats();
+    },[])
+
   return (
     <div className="barralateral">
         <div className="elementoLateral">
             <span className="tituloElemento">SOBRE NOSOTROS</span>
             <img className="sobreNosotros" src="https://images.gr-assets.com/users/1622127889p6/50403898.jpg" alt="" />
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sapiente labore, facilis eligendi omnis quaerat velit et corrupti eos quas quia, magni sit excepturi voluptate deleniti quam eius modi reprehenderit.</p>
+            <p>Somos una comunidad de alumnos universitarios que sabemos que muchas veces estudiar es un reto del lado económico. Por eso, decidimos crear este blog para ayudar un poco a todos los estudiantes que necesitan un apoyo para seguir con sus estudios</p>
         </div>
         <div className="elementoLateral">
             <span className="tituloElemento">CATEGORÍAS</span>
             <ul className="listaLateral">
-                <li className="elementoLista">DEPORTIVAS</li>
-                <li className="elementoLista">ACADÉMICAS</li>
-                <li className="elementoLista">ESCASOS RECURSOS</li>
-                <li className="elementoLista">TALENTOS</li>
+                {cats.map((c)=>(
+                 <Link to = {`/?cats=${c.nombre}`} className="link">
+                 <li className="elementoLista">{c.nombre}</li>
+                 </Link>
+                ))}
+                
             </ul>
         </div>
         <div className="elementoLateral">

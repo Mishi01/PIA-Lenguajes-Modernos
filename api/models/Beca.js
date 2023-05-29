@@ -19,6 +19,19 @@ const PostSchema = new mongoose.Schema(
             type:Array,
             required: false
         },
+        createdAt:{
+            type:String,
+            required:false
+        },
+        requisitos:{
+            type:String,
+            required:false
+        },
+        contacto:{
+            type:String,
+            required:false
+        }
+
     },
     {timestamps:true }
 

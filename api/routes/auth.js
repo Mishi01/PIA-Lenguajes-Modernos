@@ -24,15 +24,21 @@ try{
 //login
 router.post("/login", async (req,res) => {
     try{
-        const user = await User.findOne({Nombre_usuario:req.body.Nombre_usuario})
-        !user && res.status(400).json("Usuario incorrecto")
+        const user = await User.findOne({Nombre_usuario:req.body.Nombre_usuario});
+        if (user == null) {
+            res.status(400).json("Usuario incorrecto");
+            return
+        }
+        //!user && res.status(400).json("Usuario incorrecto");
+        const validate = await bcrypt.compare(req.body.Contraseña, user.Contraseña);
+        if (validate == false) {
+            res.status(400).json("Contraseña incorrecta");
+            return
+        }
+        //!validate && res.status(400).json("Contraseña incorrecta");
 
-        const validate = await bcrypt.compare(req.body.Contraseña, user.Contraseña)
-
-        !validate && res.status(400).json("Contraseña incorrecta")
-
-        const {Contraseña,...other} = user._doc
-        res.status(200).json(other)
+        const {Contraseña,...others} = user._doc
+        res.status(200).json(others)
     } catch(err){
         res.status(500).json(err);
         }

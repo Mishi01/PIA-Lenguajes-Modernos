@@ -1,3 +1,5 @@
+
+
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
@@ -7,10 +9,16 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const authBeca = require("./routes/becas");
 const authCat = require("./routes/categorias");
+const cors = require ("cors");
 
 
 dotenv.config();
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+)
 app.use("/fotos", express.static(path.join(__dirname, "/fotos")))
 
 mongoose.connect(process.env.MONGO_URL,{
@@ -21,16 +29,17 @@ mongoose.connect(process.env.MONGO_URL,{
 .catch((err) => console.log(err));
 
 const storage = multer.diskStorage({
-  destination: (req, file, callb) =>{
-    callb(null, "fotos")
+  destination: (req, file, cb) =>{
+    cb(null, "fotos");
   },
-  filename:(req,file,callb)=>{
-    callb(null, req.body.name)
+  filename:(req,file,cb)=>{
+    cb(null, req.body.name)
   },
-})
-const upload = multer({storage: storage})
+});
 
-app.use("/upload", upload.single("file"), (req,res)=>{
+const upload = multer({storage: storage});
+
+app.post("/api/upload", upload.single("file"), (req,res)=>{
   res.status(200).json("Archivo guardado")
 })
 app.use("/api/auth", authRoute)
