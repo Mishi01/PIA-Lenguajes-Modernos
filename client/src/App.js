@@ -27,6 +27,7 @@ function App() {
     }
   }
   return (
+    
     <Router>
       <Barraprincipal/>
       <Routes>
