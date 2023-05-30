@@ -8,11 +8,9 @@ const apiUrl = process.env.REACT_APP_BACKEND_URL;
 fetch(`${apiUrl}/endpoint`)
   .then(response => response.json())
   .then(data => {
-    // Procesa los datos recibidos de la API
   })
   .catch(error => {
-    // Maneja el error en caso de que ocurra
-  });
+  }); 
 
 export default function Post({post}) {
   const PF = "http://localhost:5000/fotos/"
