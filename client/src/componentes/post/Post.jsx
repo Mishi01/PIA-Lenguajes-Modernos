@@ -11,7 +11,7 @@ fetch(`${apiUrl}/endpoint`)
   })
   .catch(error => {
   }); 
-
+ 
 export default function Post({post}) {
   const PF = "http://localhost:5000/fotos/"
   return (
