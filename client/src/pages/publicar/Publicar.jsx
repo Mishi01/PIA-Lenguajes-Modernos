@@ -15,10 +15,9 @@ export default function Publicar() {
 
         toast('Se ha creado un nuevo post en el blog!', {
           position: "top-center",
-          autoClose: 10000,
+          autoClose: false,
           hideProgressBar: false,
           theme: "light",
-          autoClose: false,
           });}
 
 

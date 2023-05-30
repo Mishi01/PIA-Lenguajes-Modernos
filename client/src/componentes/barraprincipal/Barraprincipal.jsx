@@ -12,12 +12,12 @@ export default function Barraprincipal(){
     };
 
     let publicarLabel
-    if (usuario == null) {
+    if (usuario === null) {
         publicarLabel = (<li className="barraElemento">
             <Link className="link" to="/publicar">PUBLICAR</Link>
         </li>)
     } else {
-      if (usuario.Tipo == 'admin') {
+      if (usuario.Tipo === 'admin') {
         publicarLabel = (<li className="barraElemento">
             <Link className="link" to="/publicar">PUBLICAR</Link>
         </li>)

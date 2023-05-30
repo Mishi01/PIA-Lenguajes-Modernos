@@ -47,10 +47,10 @@ export default function Solopost() {
 
     let publicarLabel1
     let publicarLabel2
-    if (usuario == null) {
+    if (usuario === null) {
         publicarLabel1 = (<i class="fa-regular fa-eye"></i>)
     } else {
-        if(usuario.Tipo =='admin'){
+        if(usuario.Tipo ==='admin'){
             publicarLabel1 = (<i class="icono fa-solid fa-pen-to-square" onClick={()=>setUpdateMode(true)}></i>)
             publicarLabel2 = (<i class="icono fa-solid fa-trash" onClick={handleDelete}></i>)
     }else{publicarLabel1 = (<i class="fa-regular fa-eye"></i>)}}

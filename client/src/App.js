@@ -8,8 +8,7 @@ import Solo from "./pages/solo/Solo";
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { Context } from "./context/Context";
 import Nosotros from "./pages/Nosotros/Nosotros";
@@ -17,10 +16,10 @@ import Nosotros from "./pages/Nosotros/Nosotros";
 function App() {
   const {usuario} = useContext(Context)
   let publicarLabel
-  if (usuario == null) {
+  if (usuario === null) {
       publicarLabel = <Route path='/publicar' element= {<Registrar/>} />
   } else {
-    if (usuario.Tipo == 'admin') {
+    if (usuario.Tipo === 'admin') {
       publicarLabel = <Route path='/publicar' element={<Publicar/>} />
     } else {
       publicarLabel = <Route path='/' element= {<label> </label>} />
