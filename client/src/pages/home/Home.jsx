@@ -6,6 +6,17 @@ import "./home.css";
 import axios from "axios"
 import { useLocation } from "react-router";
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 export default function Home() {
   const [posts, setPosts] = useState([]);
    

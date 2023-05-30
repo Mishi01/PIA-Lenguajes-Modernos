@@ -13,6 +13,17 @@ import {
 import { Context } from "./context/Context";
 import Nosotros from "./pages/Nosotros/Nosotros";
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 function App() {
   const {usuario} = useContext(Context)
   let publicarLabel

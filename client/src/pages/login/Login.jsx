@@ -6,6 +6,17 @@ import { useContext, useRef } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 export default function Login() {
 
   const userRef  = useRef();

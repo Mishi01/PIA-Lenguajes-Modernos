@@ -4,6 +4,17 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Context } from "../../context/Context";
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 
 export default function Solopost() {
     const location = useLocation()
