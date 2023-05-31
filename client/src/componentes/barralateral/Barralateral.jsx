@@ -3,6 +3,17 @@ import "./barralateral.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 export default function Barralateral() {
     const [cats,setCats] = useState([]);
 

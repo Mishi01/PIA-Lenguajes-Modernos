@@ -1,6 +1,17 @@
 import "./post.css";
 import {Link} from "react-router-dom"
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 export default function Post({post}) {
   const PF = "http://localhost:5000/fotos/"
   return (

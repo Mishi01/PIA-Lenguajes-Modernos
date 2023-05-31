@@ -3,6 +3,17 @@ import "./registrar.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const apiUrl = process.env.REACT_APP_BACKEND_URL;
+
+// ...
+
+fetch(`${apiUrl}/endpoint`)
+  .then(response => response.json())
+  .then(data => {
+  })
+  .catch(error => {
+  });
+
 export default function Registrar() {
   const [Nombre_usuario, setUsername] = useState("")
   const [Correo, setEmail] = useState("")
