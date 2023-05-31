@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(
   cors({
     origin:[
-      "https://friendly-baklava-919e9c.netlify.app/",
+      "localhost:3000",
     ],
   })
 )
