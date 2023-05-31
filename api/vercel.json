@@ -1,5 +1,11 @@
 {
     "version":2,
+    "builds" :[
+        {
+            "src":"*.js",
+            "use":"@vercel/node"
+        }
+    ],
 
     "routes":[
         {
@@ -24,5 +30,7 @@
               "source": "/fotos/:path*",
               "destination": "/fotos/:path*"
             }
-          ]  
+          ]
+        
+        
 } 
