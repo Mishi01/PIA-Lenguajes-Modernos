@@ -18,7 +18,7 @@
             "headers": [
               {
                 "key": "Access-Control-Allow-Origin",
-                "value": "https://647685d2143d222f13571b26--friendly-baklava-919e9c.netlify.app/"
+                "value": "https://friendly-baklava-919e9c.netlify.app/"
               }
             ]
           }
