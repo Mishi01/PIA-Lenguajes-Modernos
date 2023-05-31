@@ -16,7 +16,7 @@ dotenv.config();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://friendly-baklava-919e9c.netlify.app/",
   })
 )
 app.use("/fotos", express.static(path.join(__dirname, "/fotos")))
