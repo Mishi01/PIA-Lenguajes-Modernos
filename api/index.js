@@ -16,7 +16,10 @@ dotenv.config();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://friendly-baklava-919e9c.netlify.app/",
+    origin:[
+      "https://friendly-baklava-919e9c.netlify.app/",
+      "https://pia-lenguajes-modernos-api.vercel.app/",
+    ],
   })
 )
 app.use("/fotos", express.static(path.join(__dirname, "/fotos")))
