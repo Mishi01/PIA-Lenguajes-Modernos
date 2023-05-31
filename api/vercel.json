@@ -15,13 +15,7 @@
     ],
         "headers": [
           {
-            "source": "/(.*)",
-            "headers": [
-              {
-                "key": "Access-Control-Allow-Origin",
-                "value": "https://friendly-baklava-919e9c.netlify.app/"
-              }
-            ]
+            "source": "/(.*)"
           }
         ]
 } 

@@ -18,7 +18,6 @@ app.use(
   cors({
     origin:[
       "https://friendly-baklava-919e9c.netlify.app/",
-      "https://pia-lenguajes-modernos-api.vercel.app/",
     ],
   })
 )
