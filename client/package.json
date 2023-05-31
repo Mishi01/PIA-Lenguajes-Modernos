@@ -38,5 +38,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000/api/"
+  "proxy": "https://pia-lenguajes-modernos-api.vercel.app/api/"
 }
