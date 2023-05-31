@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'PIABACKEND'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_648496EB6BDF45A2B73F0906D3EFE9D8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_45A05580EF9F47019491C64BDE151F69 }}
           package: .
