@@ -23,14 +23,5 @@
               }
             ]
           }
-        ],
-        
-          "rewrites": [
-            {
-              "source": "/fotos/:path*",
-              "destination": "/fotos/:path*"
-            }
-          ]
-        
-        
+        ]
 } 
