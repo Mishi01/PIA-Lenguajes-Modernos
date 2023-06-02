@@ -95,6 +95,21 @@
     font-weight: 600;
 }
 
+
+.meInteresaBoton{
+    width: 100px;
+    border: none;
+    background-color: gray;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 20px;
+}
+
+
 .soloPostBoton{
     width: 100px;
     border: none;

@@ -3,6 +3,7 @@ import "./solopost.css";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import swal from "sweetalert"
 
 const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -41,12 +42,59 @@ export default function Solopost() {
         getPost();
     },[path])
 
+    const alertaBorrar=()=>{
+        swal({
+            title:"Eliminar Beca",
+            text:"¿Estás seguro que quieres borrar esta beca?",
+            icon:"warning",
+            buttons: ["No", "Si"]
+        }).then(respuesta=>{
+            if(respuesta){
+                swal({text: "La beca se ha borrado con éxito", icon:"success"})
+                handleDelete()
+            }
+        })
+    }
+
+    const alertaEditar=()=>{
+        swal({
+            title:"Editar Beca",
+            text:"¿Estás seguro que quieres aplicar estos cambios?",
+            icon:"warning",
+            buttons: ["No", "Si"]
+        }).then(respuesta=>{
+            if(respuesta){
+                swal({text: "La beca se ha editado con éxito", icon:"success"})
+                handleEditar()
+            }
+        })
+    }
+
+
     const handleDelete =async ()=>{
         try {
             await axios.delete("/becas/"+path)
             window.location.replace("/");
         } catch (err) {}
         
+    }
+
+    const meInteresa = () =>{
+        if(usuario){
+            swal({
+                title:"Suscripción a beca",
+                text:"Se ha enviado tu información al coordinador de becas, espera su correo en estos días.",
+                icon:"info",
+                buttons: "OK"
+            })
+        }else{
+            swal({
+                title:"¿Ya tienes una cuenta?",
+                text:"Necesitas iniciar sesión para suscribirte a una beca",
+                icon:"warning",
+                buttons: "OK"
+            })
+        }
     }
 
     const handleEditar = async ()=>{
@@ -56,6 +104,8 @@ export default function Solopost() {
         } catch (err) {}
     }
 
+    
+
     let publicarLabel1
     let publicarLabel2
     if (usuario === null) {
@@ -63,7 +113,7 @@ export default function Solopost() {
     } else {
         if(usuario.Tipo ==='admin'){
             publicarLabel1 = (<i class="icono fa-solid fa-pen-to-square" onClick={()=>setUpdateMode(true)}></i>)
-            publicarLabel2 = (<i class="icono fa-solid fa-trash" onClick={handleDelete}></i>)
+            publicarLabel2 = (<i class="icono fa-solid fa-trash" onClick={alertaBorrar}></i>)
     }else{publicarLabel1 = (<i class="fa-regular fa-eye"></i>)}}
   
   return (
@@ -71,7 +121,9 @@ export default function Solopost() {
         <div className="info">
             {post.foto &&
             <img className="postFoto" src={PF+post.foto} alt="info del post" />
+            
         }
+        <button className="meInteresaBoton" onClick={meInteresa}>Me interesa</button>
         {
             updateMode ?  <input type="text" value={titulo} onChange={(e)=>setTitle(e.target.value)} className="solopostTituloInput" autoFocus></input> : (
                 <h1 className="solopostTitulo">{post.titulo}
@@ -80,10 +132,12 @@ export default function Solopost() {
                         {publicarLabel2}
                     </div>
                 </h1>
+                
             )
         }
-            <div className="postDescripcion">
-                <span className="solopostAutor">Autor: <b>Equipo</b></span>
+
+            <div className="postDescripcion" >
+                <span className="solopostAutor">Autor: <b>Equipo Becario</b></span>
                 <span className="solopostFecha">{post.createdAt}</span>
             </div>
             {
@@ -106,7 +160,7 @@ export default function Solopost() {
                     )
                 }
                 
-                {updateMode && (<button className="soloPostBoton" onClick={handleEditar}>Editar</button>)}
+                {updateMode && (<button className="soloPostBoton" onClick={alertaEditar}>Editar</button>)}
       
         </div>
     </div>

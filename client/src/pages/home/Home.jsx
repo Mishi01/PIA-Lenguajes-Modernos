@@ -5,6 +5,7 @@ import Posts from "../../componentes/posts/Posts";
 import "./home.css";
 import axios from "axios"
 import { useLocation } from "react-router";
+import ClipLoader from "react-spinners/ClipLoader"
 
 const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
@@ -22,6 +23,15 @@ export default function Home() {
    
   const {search} = useLocation();
 
+  const [loading,setLoading] = useState(false);
+
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },2000)
+  },[])
+
   useEffect(()=>{
     const fecthPosts = async()=>{
       const res = await axios.get("/becas"+search);
@@ -33,10 +43,18 @@ export default function Home() {
   return (
     <>
       <Header/>
-      <div className="home">
-        <Posts posts = {posts}/>
-        <Barralateral/>
-      </div>
+     <div className="carga">
+        {
+          loading ? 
+          <ClipLoader size={150} color={"#123abc"} loading={loading}></ClipLoader>
+          :
+          <div className="home">
+          <Posts posts = {posts}/>
+          <Barralateral/>
+        </div>
+        }
+        </div>
+
     </>
   );
 }
